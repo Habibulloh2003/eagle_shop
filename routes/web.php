@@ -19,7 +19,7 @@ use App\Http\Controllers\ProductController;
 
 require __DIR__.'/auth.php';
 
-Route::middleware('auth')->group(function (){
+Route::middleware(['auth','verified'])->group(function (){
     Route::get('/', [ProductController::class, 'test'])->name('home');
     Route::get('/news', function () {
         return view('home');
